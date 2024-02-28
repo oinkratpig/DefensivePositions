@@ -35,7 +35,7 @@ namespace DefensivePositions
         public static void UnitMouseEventManagerPatch(UnitMouseEventManager __instance)
         {
             // Return
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.R))
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                     _returnPositions = GetAllAgentPositions();
@@ -43,7 +43,7 @@ namespace DefensivePositions
                     SetAllAgentPositions(_returnPositions);
             }
             // Defense
-            else if (Input.GetKeyDown(KeyCode.Q))
+            else if (Input.GetKeyDown(KeyCode.F))
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                     _defensePositions = GetAllAgentPositions();
