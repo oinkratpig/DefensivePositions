@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34601.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefensivePosition_Attempt2", "DefensivePosition_Attempt2.csproj", "{175AC1A4-868C-4B69-B0E0-E0AECD16E819}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefensivePosition", "DefensivePosition.csproj", "{175AC1A4-868C-4B69-B0E0-E0AECD16E819}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
