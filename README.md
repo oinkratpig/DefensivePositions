@@ -1,3 +1,5 @@
+[Nexus page](https://www.nexusmods.com/lobotomycorporation/mods/378/?tab=description).
+
 Requires [BaseMod](https://www.nexusmods.com/lobotomycorporation/mods/2).
 
 Lobotomy Corp mod that allows for saving and loading agent positions. Useful for quickly sending everyone to an exact location.
