@@ -8,14 +8,16 @@ namespace DefensivePositions
 {
     public class Harmony_Patch
     {
-        private static Dictionary<AgentModel, PassageObjectModel> _returnPositions;
-        private static Dictionary<AgentModel, PassageObjectModel> _defensePositions;
+        private static Dictionary<AgentModel, PassageObjectModel>[] _positions;
+        private static KeyCode[] _positionKeys = new KeyCode[] { KeyCode.Z, KeyCode.X, KeyCode.C };
 
         // Constructor
         public Harmony_Patch()
         {
-            Oink.Log("Loading...");
+            _positions = new Dictionary<AgentModel, PassageObjectModel>[_positionKeys.Length];
 
+            // Apply patches
+            Oink.Log("Loading...");
             HarmonyInstance harmony = HarmonyInstance.Create("oinkratpig.LobotomyCorp.DefensivePositions");
             try
             {
@@ -26,7 +28,6 @@ namespace DefensivePositions
             {
                 Oink.Log(e.Message);
             }
-
             Oink.Log("Finished patches.");
 
         } // end constructor
@@ -34,21 +35,16 @@ namespace DefensivePositions
         // Input
         public static void UnitMouseEventManagerPatch(UnitMouseEventManager __instance)
         {
-            // Return
-            if (Input.GetKeyDown(KeyCode.R))
+            // Save/load positions on key press
+            for(int i = 0; i < _positionKeys.Length; i++)
             {
-                if (Input.GetKey(KeyCode.LeftShift))
-                    _returnPositions = GetAllAgentPositions();
-                else
-                    SetAllAgentPositions(_returnPositions);
-            }
-            // Defense
-            else if (Input.GetKeyDown(KeyCode.F))
-            {
-                if (Input.GetKey(KeyCode.LeftShift))
-                    _defensePositions = GetAllAgentPositions();
-                else
-                    SetAllAgentPositions(_defensePositions);
+                if (Input.GetKeyDown(_positionKeys[i]))
+                {
+                    if (Input.GetKey(KeyCode.LeftShift))
+                        _positions[i] = GetAllAgentPositions();
+                    else
+                        SetAllAgentPositions(_positions[i]);
+                }
             }
 
         } // end UnitMouseEventManagerPatch
